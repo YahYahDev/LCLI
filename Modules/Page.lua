@@ -1,3 +1,4 @@
+
 page = {
 
 
@@ -10,7 +11,7 @@ page = {
     },
 
 
----Displays self.content.display arrays contents
+---Displays self.content.display[] contents
 ---@param self table
     display = function (self)
         os.execute("clear")
@@ -37,23 +38,14 @@ page = {
     setfunction = function (self, line, FUNCTION)
         self.content.changes[line] = FUNCTION
     end,
----Gets input from the user then executes the function related to the input else return false
+---Executes the function that is related to the input of the user, if it fails it returns false
 ---@param self table
----@return boolean
     getinput = function (self)
-        input = io.read()
-        if self.content.changes[input] == nil then
-            os.execute("clear")
-            print("ERROR: NO FUNCTION FOR THAT OPTION")
+        io.write("Input: < ")
+        local input = io.read()
 
-            return false
+        self.content.changes[input]()
 
-            else
-
-            self.content.changes[input]()
-
-            return true
-        end
     end,
 
 
@@ -62,7 +54,14 @@ page = {
 ---@param name string
     init = function (self, name)
         self.Name = name
+        local content = {
+            display = {},
+            changes = {}
+        }
+        self.content = content
     end
 
 
 }
+
+return page
