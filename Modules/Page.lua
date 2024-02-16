@@ -7,7 +7,7 @@ page = {
 
     content = {
         display = {},
-        changes = {}
+        funcs = {}
     },
 
 
@@ -35,16 +35,20 @@ page = {
 ---@param self table
 ---@param line number
 ---@param FUNCTION function
-    setfunction = function (self, line, FUNCTION)
-        self.content.changes[line] = FUNCTION
+    setfunc = function (self, line, FUNCTION)
+        self.content.funcs[line] = FUNCTION
     end,
 ---Executes the function that is related to the input of the user, if it fails it returns false
 ---@param self table
     getinput = function (self)
         io.write("Input: < ")
-        local input = io.read()
+        local input = tonumber(io.read())
 
-        self.content.changes[input]()
+        if type(self.content.funcs[input]) ~= "function" then
+            print("self.content.funcs[".. input .. "]\nERROR: IS TYPE '".. type(self.content.funcs[input]) .. "'")
+        else
+            self.content.funcs[input]()
+        end
 
     end,
 
@@ -56,7 +60,7 @@ page = {
         self.Name = name
         local content = {
             display = {},
-            changes = {}
+            funcs = {}
         }
         self.content = content
     end
