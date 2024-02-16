@@ -1,0 +1,32 @@
+Best Practices:
+
+    1): Sanitize variables when ever you can for type safety.
+
+        1): Check types when assuming information.
+
+        2): Sanitize incoming arguments in functions.
+
+        3): Sanitize io.read() to what you need always.
+
+
+    2): Keep "Modules" mostly self contained for their own functionality.
+
+        1): Keeping "Modules" mostly self contained means
+            not having more than 1-4 other modules required.
+
+        2): If you need to include more than 1-4 modules
+            then your not writing a module your writing a library.
+
+        3): Exceding the intended use of a module is
+            bad practice avoid it if at all possible.
+
+    3): Naming variables
+
+        1): Module tables will be lowercase for convienence
+
+        2): Constants like pi will be all caps
+
+        3): For multiple words you shall use CammelCase
+
+    3): Naming functions:
+

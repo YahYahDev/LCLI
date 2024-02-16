@@ -10,3 +10,4 @@ A CLI library for the Lua language
         make a constructor for the "page" object.
 
         make a way to parse a .txt file to construct a CLI from the formating in the file.
+
