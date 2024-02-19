@@ -5,49 +5,49 @@ page = {
     Name = "",
 
 
-    content = {
-        display = {},
-        funcs = {}
+    Content = {
+        Display = {},
+        Funcs = {}
     },
 
 
----Displays self.content.display[] contents
+---Displays self.Content.Display[] contents
 ---@param self table
-    display = function (self)
+    Display = function (self)
         os.execute("clear")
         print(self.Name)
-        for i = 1 , #self.content.display do
-            print(i .. "): ".. self.content.display[i])
+        for i = 1 , #self.Content.Display do
+            print(i .. "): ".. self.Content.Display[i])
         end
 
     end,
 
 
----Appends self.content.display[line] with value
+---Appends self.Content.Display[line] with value
 ---@param self table
 ---@param line number
 ---@param value string
-    append = function (self, line, value)
-        self.content.display[line] = value
+    Append = function (self, line, value)
+        self.Content.Display[line] = value
     end,
 
 ---Sets the function that will be used on getinput()
 ---@param self table
 ---@param line number
 ---@param FUNCTION function
-    setfunc = function (self, line, FUNCTION)
-        self.content.funcs[line] = FUNCTION
+    SetFunc = function (self, line, FUNCTION)
+        self.Content.Funcs[line] = FUNCTION
     end,
 ---Executes the function that is related to the input of the user, if it fails it returns false
 ---@param self table
-    getinput = function (self)
+    GetInput = function (self)
         io.write("Input: < ")
         local input = tonumber(io.read())
 
-        if type(self.content.funcs[input]) ~= "function" then
-            print("self.content.funcs[".. input .. "]\nERROR: IS TYPE '".. type(self.content.funcs[input]) .. "'")
+        if type(self.Content.Funcs[input]) ~= "function" then
+            print("self.Content.Funcs[".. input .. "]\nERROR: IS TYPE '".. type(self.Content.Funcs[input]) .. "'")
         else
-            self.content.funcs[input]()
+            self.Content.Funcs[input]()
         end
 
     end,
@@ -56,13 +56,13 @@ page = {
 ---Inits name
 ---@param self table
 ---@param name string
-    init = function (self, name)
+    Init = function (self, name)
         self.Name = name
-        local content = {
-            display = {},
-            funcs = {}
+        local Content = {
+            Display = {},
+            Funcs = {}
         }
-        self.content = content
+        self.Content = Content
     end
 
 
