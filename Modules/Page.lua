@@ -1,4 +1,4 @@
-
+---@class page
 page = {
 
 

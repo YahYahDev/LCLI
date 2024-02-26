@@ -1,6 +1,10 @@
-
+---@class str
 str = {
 
+
+    Len = function (str)
+        return string.len(str)
+    end,
 
     Match = function (str, pattern)
         --return a list of all instances of a "pattern"
