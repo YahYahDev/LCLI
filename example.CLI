@@ -1,3 +1,9 @@
-(1)START:</Interface/>
-    CODE:</print("hello world")/>
-(1)END:
+START:
+    NAME:</Interface/>
+    CODE:</print("hello world")/>CODE:
+END:
+
+START:
+    NAME:</Interface 2/>
+    CODE:</print("Hello From Interface 2")/>CODE:
+END:

@@ -21,33 +21,26 @@ parse = {
 ---@param to string
 ---@return string[]
     GetAllBlock = function (source, from, to)
-
         local blocks = {}
 
-        local loop = 0
+        local loop = 1
 
-        local From_first = ""
-        local From_last = ""
+        local From_first, From_last
 
-        local To_first = ""
-        local To_last
+        local To_first, To_last
 
         while true do
-
-            loop = loop +1
-
             From_first, From_last = str.Find(source, from)
 
             To_first, To_last = str.Find(source, to)
 
-            if From_first == nil then
+            if From_first == nil or To_first == nil then
                 break
             end
 
             blocks[loop] = str.Copy(source, From_last +1, To_first -1)
-
-            source = str.Copy(source, To_first +1, str.Len(source))
-
+            source = str.Copy(source, To_last +1, str.Len(source))
+            loop = loop +1
         end
 
         return blocks
